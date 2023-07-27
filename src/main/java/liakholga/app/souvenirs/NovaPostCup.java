@@ -72,19 +72,4 @@ public class NovaPostCup implements Cup {
     public Souvenir addSouvenir(String name, Producer producer, Date date, double price) {
         return new NovaPostCup(name, (NovaPost) producer, date, price);
     }
-
-    @Override
-    public List<Souvenir> getAllSouvenirs(List<Souvenir> souvenirs) {
-        return null;
-    }
-
-    @Override
-    public Souvenir updateSouvenir(int index) {
-        return null;
-    }
-
-    @Override
-    public void removeSouvenir(int id) {
-
-    }
 }

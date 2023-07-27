@@ -62,21 +62,6 @@ public class UkrPostPen implements Pen {
     }
 
     @Override
-    public List<Souvenir> getAllSouvenirs(List<Souvenir> souvenirs) {
-        return null;
-    }
-
-    @Override
-    public Souvenir updateSouvenir(int index) {
-        return null;
-    }
-
-    @Override
-    public void removeSouvenir(int id) {
-
-    }
-
-    @Override
     public String toString() {
         return "UkrPostPen{" +
                 "name='" + name + '\'' +

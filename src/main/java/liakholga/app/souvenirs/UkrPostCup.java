@@ -73,18 +73,4 @@ public class UkrPostCup implements Cup {
         return new UkrPostCup(name, (UkrPost) producer, date, price);
     }
 
-    @Override
-    public List<Souvenir> getAllSouvenirs(List<Souvenir> souvenirs) {
-        return null;
-    }
-
-    @Override
-    public Souvenir updateSouvenir(int index) {
-        return null;
-    }
-
-    @Override
-    public void removeSouvenir(int id) {
-
-    }
 }

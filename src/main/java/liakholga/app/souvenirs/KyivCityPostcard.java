@@ -64,21 +64,6 @@ public class KyivCityPostcard implements Postcard {
     }
 
     @Override
-    public List<Souvenir> getAllSouvenirs(List<Souvenir> souvenirs) {
-        return souvenirs;
-    }
-
-    @Override
-    public Souvenir updateSouvenir(int index) {
-        return null;
-    }
-
-    @Override
-    public void removeSouvenir(int id) {
-
-    }
-
-    @Override
     public String toString() {
         return "KyivCityPostcard{" +
                 "name='" + name + '\'' +

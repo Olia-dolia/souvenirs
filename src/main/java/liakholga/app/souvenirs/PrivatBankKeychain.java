@@ -63,21 +63,6 @@ public class PrivatBankKeychain implements Keychain {
     }
 
     @Override
-    public List<Souvenir> getAllSouvenirs(List<Souvenir> souvenirs) {
-        return null;
-    }
-
-    @Override
-    public Souvenir updateSouvenir(int index) {
-        return null;
-    }
-
-    @Override
-    public void removeSouvenir(int id) {
-
-    }
-
-    @Override
     public String toString() {
         return "PrivatBankKeychain{" +
                 "name='" + name + '\'' +
