@@ -33,6 +33,20 @@ public class PrivatBankKeychain implements Keychain {
         this.name = name;
     }
 
+    @Override
+    public Souvenir findByNameAndProducer(String name, Producer producer) {
+        if(this.name.equals(name) && this.producer.equals(producer)){
+            return this;
+        }
+        return null;
+    }
+
+    @Override
+    public boolean findProducerByPrice(double price) {
+        return this.price < price;
+    }
+
+    @Override
     public PrivatBank getProducer() {
         return producer;
     }
@@ -58,7 +72,7 @@ public class PrivatBankKeychain implements Keychain {
     }
 
     @Override
-    public Souvenir addSouvenir(String name, Producer producer, Date date, double price) {
+    public Souvenir setSouvenir(String name, Producer producer, Date date, double price) {
         return new PrivatBankKeychain(name, (PrivatBank) producer, date, price);
     }
 

@@ -6,7 +6,6 @@ import liakholga.app.souvenirInterface.Cup;
 import liakholga.app.souvenirInterface.Souvenir;
 
 import java.util.Date;
-import java.util.List;
 
 public class UkrPostCup implements Cup {
 
@@ -14,9 +13,6 @@ public class UkrPostCup implements Cup {
     private UkrPost producer;
     private Date date;
     private double price;
-
-    public UkrPostCup() {
-    }
 
     public UkrPostCup(String name, UkrPost producer, Date date, double price) {
         this.name = name;
@@ -33,8 +29,22 @@ public class UkrPostCup implements Cup {
         this.name = name;
     }
 
+    @Override
     public UkrPost getProducer() {
         return producer;
+    }
+
+    @Override
+    public Souvenir findByNameAndProducer(String name, Producer producer) {
+        if(this.name.equals(name) && this.producer.equals(producer)){
+            return this;
+        }
+        return null;
+    }
+
+    @Override
+    public boolean findProducerByPrice(double price) {
+        return this.price<price;
     }
 
     public void setProducer(UkrPost producer) {
@@ -69,8 +79,7 @@ public class UkrPostCup implements Cup {
     }
 
     @Override
-    public Souvenir addSouvenir(String name, Producer producer, Date date, double price) {
+    public Souvenir setSouvenir(String name, Producer producer, Date date, double price) {
         return new UkrPostCup(name, (UkrPost) producer, date, price);
     }
-
 }

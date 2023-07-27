@@ -49,6 +49,7 @@ public class UkrPost implements SouvenirsFactory, Producer {
         return name;
     }
 
+    @Override
     public void setCountry(String country) {
         this.country = country;
     }

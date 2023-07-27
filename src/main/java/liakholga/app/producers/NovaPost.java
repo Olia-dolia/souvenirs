@@ -49,6 +49,7 @@ public class NovaPost implements SouvenirsFactory, Producer {
         return this.name;
     }
 
+    @Override
     public void setCountry(String country) {
         this.country = country;
     }

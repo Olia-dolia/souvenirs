@@ -6,7 +6,6 @@ import liakholga.app.souvenirInterface.Pen;
 import liakholga.app.souvenirInterface.Souvenir;
 
 import java.util.Date;
-import java.util.List;
 
 public class UkrPostPen implements Pen {
 
@@ -14,8 +13,6 @@ public class UkrPostPen implements Pen {
     private UkrPost producer;
     private Date date;
     private double price;
-
-    public UkrPostPen(){}
 
     public UkrPostPen(String name, UkrPost producer, Date date, double price) {
         this.name = name;
@@ -32,8 +29,22 @@ public class UkrPostPen implements Pen {
         this.name = name;
     }
 
+    @Override
     public UkrPost getProducer() {
         return producer;
+    }
+
+    @Override
+    public Souvenir findByNameAndProducer(String name, Producer producer) {
+        if(this.name.equals(name) && this.producer.equals(producer)){
+            return this;
+        }
+        return null;
+    }
+
+    @Override
+    public boolean findProducerByPrice(double price) {
+        return this.price<price;
     }
 
     public void setProducer(UkrPost producer) {
@@ -57,7 +68,7 @@ public class UkrPostPen implements Pen {
     }
 
     @Override
-    public Souvenir addSouvenir(String name, Producer producer, Date date, double price) {
+    public Souvenir setSouvenir(String name, Producer producer, Date date, double price) {
         return new UkrPostPen(name, (UkrPost) producer, date, price);
     }
 

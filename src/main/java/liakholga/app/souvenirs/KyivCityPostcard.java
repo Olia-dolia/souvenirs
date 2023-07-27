@@ -1,13 +1,11 @@
 package liakholga.app.souvenirs;
 
 import liakholga.app.producers.KyivCity;
-import liakholga.app.producers.NovaPost;
 import liakholga.app.producers.Producer;
 import liakholga.app.souvenirInterface.Postcard;
 import liakholga.app.souvenirInterface.Souvenir;
 
 import java.util.Date;
-import java.util.List;
 
 public class KyivCityPostcard implements Postcard {
 
@@ -34,8 +32,22 @@ public class KyivCityPostcard implements Postcard {
         this.name = name;
     }
 
+    @Override
     public KyivCity getProducer() {
         return producer;
+    }
+
+    @Override
+    public Souvenir findByNameAndProducer(String name, Producer producer) {
+        if(this.name.equals(name) && this.producer.equals(producer)){
+            return this;
+        }
+        return null;
+    }
+
+    @Override
+    public boolean findProducerByPrice(double price) {
+        return this.price<price;
     }
 
     public void setProducer(KyivCity producer) {
@@ -59,7 +71,7 @@ public class KyivCityPostcard implements Postcard {
     }
 
     @Override
-    public Souvenir addSouvenir(String name, Producer producer, Date date, double price) {
+    public Souvenir setSouvenir(String name, Producer producer, Date date, double price) {
         return new KyivCityPostcard(name, (KyivCity) producer, date, price);
     }
 

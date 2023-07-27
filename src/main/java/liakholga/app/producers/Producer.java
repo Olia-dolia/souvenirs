@@ -4,4 +4,6 @@ public interface Producer {
     String getName();
 
     String getCountry();
+
+    void setCountry(String country);
 }

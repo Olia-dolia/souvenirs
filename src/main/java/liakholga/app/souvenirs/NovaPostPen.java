@@ -6,7 +6,6 @@ import liakholga.app.souvenirInterface.Pen;
 import liakholga.app.souvenirInterface.Souvenir;
 
 import java.util.Date;
-import java.util.List;
 
 public class NovaPostPen implements Pen {
 
@@ -33,8 +32,22 @@ public class NovaPostPen implements Pen {
         this.name = name;
     }
 
+    @Override
     public NovaPost getProducer() {
         return producer;
+    }
+
+    @Override
+    public Souvenir findByNameAndProducer(String name, Producer producer) {
+        if (this.name.equals(name) && this.producer.equals(producer)) {
+            return this;
+        }
+        return null;
+    }
+
+    @Override
+    public boolean findProducerByPrice(double price) {
+        return this.price<price;
     }
 
     public void setProducer(NovaPost producer) {
@@ -58,7 +71,7 @@ public class NovaPostPen implements Pen {
     }
 
     @Override
-    public Souvenir addSouvenir(String name, Producer producer, Date date, double price) {
+    public Souvenir setSouvenir(String name, Producer producer, Date date, double price) {
         return new NovaPostPen(name, (NovaPost) producer, date, price);
     }
 
