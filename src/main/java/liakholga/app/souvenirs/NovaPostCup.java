@@ -3,6 +3,7 @@ package liakholga.app.souvenirs;
 import liakholga.app.producers.NovaPost;
 import liakholga.app.producers.Producer;
 import liakholga.app.souvenirInterface.Cup;
+import liakholga.app.souvenirInterface.Souvenir;
 
 import java.util.Date;
 import java.util.List;
@@ -21,27 +22,6 @@ public class NovaPostCup implements Cup {
         this.producer = producer;
         this.date = date;
         this.price = price;
-    }
-
-    @Override
-    public Cup addCup(String name, Producer producer, Date date, double price) {
-        NovaPostCup cup = new NovaPostCup(name, (NovaPost) producer, date, price);
-        return cup;
-    }
-
-    @Override
-    public List<Cup> getAllCup(List<Cup> cups) {
-        return cups;
-    }
-
-    @Override
-    public Cup updateCup(int index) {
-        return null;
-    }
-
-    @Override
-    public void removeCup(int id) {
-
     }
 
     public String getName() {
@@ -85,5 +65,25 @@ public class NovaPostCup implements Cup {
                 ", date=" + date +
                 ", price=" + price +
                 '}';
+    }
+
+    @Override
+    public Souvenir addSouvenir(String name, Producer producer, Date date, double price) {
+        return new NovaPostCup(name, (NovaPost) producer, date, price);
+    }
+
+    @Override
+    public List<Souvenir> getAllSouvenirs(List<Souvenir> souvenirs) {
+        return null;
+    }
+
+    @Override
+    public Souvenir updateSouvenir(int index) {
+        return null;
+    }
+
+    @Override
+    public void removeSouvenir(int id) {
+
     }
 }

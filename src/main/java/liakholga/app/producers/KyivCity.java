@@ -1,6 +1,6 @@
 package liakholga.app.producers;
 
-import liakholga.app.producerInterface.SouvenirsFactory;
+import liakholga.app.Factory.SouvenirsFactory;
 import liakholga.app.souvenirInterface.Cup;
 import liakholga.app.souvenirInterface.Keychain;
 import liakholga.app.souvenirInterface.Pen;

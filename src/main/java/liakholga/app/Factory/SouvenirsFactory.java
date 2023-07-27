@@ -1,4 +1,4 @@
-package liakholga.app.producerInterface;
+package liakholga.app.Factory;
 
 import liakholga.app.producers.Producer;
 import liakholga.app.souvenirInterface.*;
