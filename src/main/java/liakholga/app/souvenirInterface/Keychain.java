@@ -1,4 +1,4 @@
 package liakholga.app.souvenirInterface;
 
-public interface Keychain {
+public interface Keychain extends Souvenir{
 }

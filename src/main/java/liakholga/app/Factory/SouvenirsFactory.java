@@ -9,9 +9,9 @@ public interface SouvenirsFactory {
 
     Cup createCup(String name, Producer producer, Date date, double price);
 
-    Keychain createKeychain();
+    Keychain createKeychain(String name, Producer producer, Date date, double price);
 
-    Pen createPen();
+    Pen createPen(String name, Producer producer, Date date, double price);
 
-    Postcard createPostCard();
+    Postcard createPostCard(String name, Producer producer, Date date, double price);
 }

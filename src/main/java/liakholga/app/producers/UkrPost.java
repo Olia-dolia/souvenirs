@@ -26,17 +26,17 @@ public class UkrPost implements SouvenirsFactory, Producer {
     }
 
     @Override
-    public Keychain createKeychain() {
+    public Keychain createKeychain(String name, Producer producer, Date date, double price) {
         return null;
     }
 
     @Override
-    public Pen createPen() {
-        return new UkrPostPen();
+    public Pen createPen(String name, Producer producer, Date date, double price) {
+        return null;
     }
 
     @Override
-    public Postcard createPostCard() {
+    public Postcard createPostCard(String name, Producer producer, Date date, double price) {
         return null;
     }
 
@@ -46,15 +46,23 @@ public class UkrPost implements SouvenirsFactory, Producer {
 
     @Override
     public String getName() {
-        return this.name;
-    }
-
-    @Override
-    public String getCountry() {
-        return null;
+        return name;
     }
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    @Override
+    public String getCountry() {
+        return country;
+    }
+
+    @Override
+    public String toString() {
+        return "Producer{" +
+                "name='" + name + '\'' +
+                ", country='" + country + '\'' +
+                '}';
     }
 }

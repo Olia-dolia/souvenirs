@@ -20,24 +20,25 @@ public class KyivCity implements SouvenirsFactory, Producer {
     }
 
     @Override
-    public Cup createCup(String nameCup, Producer producer, Date date, double price) {
+    public Cup createCup(String name, Producer producer, Date date, double price) {
         return null;
     }
 
     @Override
-    public Keychain createKeychain() {
+    public Keychain createKeychain(String name, Producer producer, Date date, double price) {
         return null;
     }
 
     @Override
-    public Pen createPen() {
+    public Pen createPen(String name, Producer producer, Date date, double price) {
         return null;
     }
 
     @Override
-    public Postcard createPostCard() {
-        return new KyivCityPostcard();
+    public Postcard createPostCard(String name, Producer producer, Date date, double price) {
+        return null;
     }
+
 
     public void setName() {
         this.name = "Kyiv City";
@@ -45,7 +46,7 @@ public class KyivCity implements SouvenirsFactory, Producer {
 
     @Override
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public void setCountry(String country) {
@@ -54,6 +55,14 @@ public class KyivCity implements SouvenirsFactory, Producer {
 
     @Override
     public String getCountry() {
-        return this.country;
+        return country;
+    }
+
+    @Override
+    public String toString() {
+        return "Producer{" +
+                "name='" + name + '\'' +
+                ", country='" + country + '\'' +
+                '}';
     }
 }

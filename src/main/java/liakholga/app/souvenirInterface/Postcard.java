@@ -1,4 +1,4 @@
 package liakholga.app.souvenirInterface;
 
-public interface Postcard {
+public interface Postcard extends Souvenir{
 }

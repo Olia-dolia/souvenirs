@@ -9,7 +9,15 @@ import liakholga.app.souvenirs.PrivatBankKeychain;
 
 import java.util.Date;
 
-public class PrivatBank implements SouvenirsFactory {
+public class PrivatBank implements SouvenirsFactory, Producer {
+
+    private String name;
+    private String country;
+
+    public PrivatBank(String country) {
+        this.name = "Privat Bank";
+        this.country = country;
+    }
 
     @Override
     public Cup createCup(String nameCup, Producer producer, Date date, double price) {
@@ -17,17 +25,43 @@ public class PrivatBank implements SouvenirsFactory {
     }
 
     @Override
-    public Keychain createKeychain() {
-        return new PrivatBankKeychain();
-    }
-
-    @Override
-    public Pen createPen() {
+    public Keychain createKeychain(String name, Producer producer, Date date, double price) {
         return null;
     }
 
     @Override
-    public Postcard createPostCard() {
+    public Pen createPen(String nameCup, Producer producer, Date date, double price) {
         return null;
+    }
+
+    @Override
+    public Postcard createPostCard(String name, Producer producer, Date date, double price) {
+        return null;
+    }
+
+    public void setName() {
+        this.name = "Privat Bank";
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public String getCountry() {
+        return this.country;
+    }
+
+    @Override
+    public String toString() {
+        return "Producer{" +
+                "name='" + name + '\'' +
+                ", country='" + country + '\'' +
+                '}';
     }
 }

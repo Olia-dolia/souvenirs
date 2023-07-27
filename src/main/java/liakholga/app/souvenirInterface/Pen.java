@@ -1,4 +1,4 @@
 package liakholga.app.souvenirInterface;
 
-public interface Pen {
+public interface Pen extends Souvenir{
 }

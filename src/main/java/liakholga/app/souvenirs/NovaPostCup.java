@@ -15,7 +15,8 @@ public class NovaPostCup implements Cup {
     private Date date;
     private double price;
 
-    public NovaPostCup(){}
+    public NovaPostCup() {
+    }
 
     public NovaPostCup(String name, NovaPost producer, Date date, double price) {
         this.name = name;

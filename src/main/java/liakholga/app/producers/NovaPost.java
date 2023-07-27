@@ -21,22 +21,22 @@ public class NovaPost implements SouvenirsFactory, Producer {
     }
 
     @Override
-    public Cup createCup(String nameCup, Producer producer, Date date, double price) {
-        return new NovaPostCup(nameCup, (NovaPost) producer, date, price);
+    public Cup createCup(String name, Producer producer, Date date, double price) {
+        return new NovaPostCup(name, (NovaPost) producer, date, price);
     }
 
     @Override
-    public Keychain createKeychain() {
+    public Keychain createKeychain(String name, Producer producer, Date date, double price) {
         return null;
     }
 
     @Override
-    public Pen createPen() {
-        return new NovaPostPen();
+    public Pen createPen(String name, Producer producer, Date date, double price) {
+        return new NovaPostPen(name, (NovaPost) producer, date, price);
     }
 
     @Override
-    public Postcard createPostCard() {
+    public Postcard createPostCard(String name, Producer producer, Date date, double price) {
         return null;
     }
 
@@ -56,5 +56,13 @@ public class NovaPost implements SouvenirsFactory, Producer {
     @Override
     public String getCountry() {
         return this.country;
+    }
+
+    @Override
+    public String toString() {
+        return "Producer{" +
+                "name='" + name + '\'' +
+                ", country='" + country + '\'' +
+                '}';
     }
 }

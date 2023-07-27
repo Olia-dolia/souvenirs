@@ -15,7 +15,8 @@ public class UkrPostCup implements Cup {
     private Date date;
     private double price;
 
-    public UkrPostCup() {}
+    public UkrPostCup() {
+    }
 
     public UkrPostCup(String name, UkrPost producer, Date date, double price) {
         this.name = name;
