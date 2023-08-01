@@ -14,8 +14,6 @@ public class NovaPostCup implements Cup {
     private Date date;
     private double price;
 
-    public NovaPostCup() {
-    }
 
     public NovaPostCup(String name, NovaPost producer, Date date, double price) {
         this.name = name;
@@ -45,11 +43,6 @@ public class NovaPostCup implements Cup {
         return null;
     }
 
-    @Override
-    public boolean findProducerByPrice(double price) {
-        return this.price<price;
-    }
-
     public void setProducer(NovaPost producer) {
         this.producer = producer;
     }
@@ -71,6 +64,21 @@ public class NovaPostCup implements Cup {
     }
 
     @Override
+    public Souvenir setSouvenir(String name, Producer producer, Date date, double price) {
+        return new NovaPostCup(name, (NovaPost) producer, date, price);
+    }
+
+    @Override
+    public String getSouvenir() {
+        return "NovaPostCup{" +
+                "name='" + name + '\'' +
+                ", country= " + producer.getCountry() +
+                ", date=" + date +
+                ", price=" + price +
+                '}';
+    }
+
+    @Override
     public String toString() {
         return "NovaPostCup{" +
                 "name='" + name + '\'' +
@@ -79,10 +87,5 @@ public class NovaPostCup implements Cup {
                 ", date=" + date +
                 ", price=" + price +
                 '}';
-    }
-
-    @Override
-    public Souvenir setSouvenir(String name, Producer producer, Date date, double price) {
-        return new NovaPostCup(name, (NovaPost) producer, date, price);
     }
 }

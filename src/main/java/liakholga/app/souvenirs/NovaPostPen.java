@@ -14,9 +14,6 @@ public class NovaPostPen implements Pen {
     private Date date;
     private double price;
 
-    public NovaPostPen() {
-    }
-
     public NovaPostPen(String name, NovaPost producer, Date date, double price) {
         this.name = name;
         this.producer = producer;
@@ -45,11 +42,6 @@ public class NovaPostPen implements Pen {
         return null;
     }
 
-    @Override
-    public boolean findProducerByPrice(double price) {
-        return this.price<price;
-    }
-
     public void setProducer(NovaPost producer) {
         this.producer = producer;
     }
@@ -73,6 +65,16 @@ public class NovaPostPen implements Pen {
     @Override
     public Souvenir setSouvenir(String name, Producer producer, Date date, double price) {
         return new NovaPostPen(name, (NovaPost) producer, date, price);
+    }
+
+    @Override
+    public String getSouvenir() {
+        return "NovaPostPen{" +
+                "name='" + name + '\'' +
+                ", country= " + producer.getCountry() +
+                ", date=" + date +
+                ", price=" + price +
+                '}';
     }
 
     @Override

@@ -21,6 +21,12 @@ public class UkrPostCup implements Cup {
         this.price = price;
     }
 
+    public UkrPostCup(String name, Date date, double price) {
+        this.name = name;
+        this.date = date;
+        this.price = price;
+    }
+
     public String getName() {
         return name;
     }
@@ -40,11 +46,6 @@ public class UkrPostCup implements Cup {
             return this;
         }
         return null;
-    }
-
-    @Override
-    public boolean findProducerByPrice(double price) {
-        return this.price<price;
     }
 
     public void setProducer(UkrPost producer) {
@@ -67,6 +68,22 @@ public class UkrPostCup implements Cup {
         this.price = price;
     }
 
+
+    @Override
+    public Souvenir setSouvenir(String name, Producer producer, Date date, double price) {
+        return new UkrPostCup(name, (UkrPost) producer, date, price);
+    }
+
+    @Override
+    public String getSouvenir() {
+        return "UkrPostCup{" +
+                "name='" + name + '\'' +
+                ", country= " + producer.getCountry() +
+                ", date=" + date +
+                ", price=" + price +
+                '}';
+    }
+
     @Override
     public String toString() {
         return "UkrPostCup{" +
@@ -76,10 +93,5 @@ public class UkrPostCup implements Cup {
                 ", date=" + date +
                 ", price=" + price +
                 '}';
-    }
-
-    @Override
-    public Souvenir setSouvenir(String name, Producer producer, Date date, double price) {
-        return new UkrPostCup(name, (UkrPost) producer, date, price);
     }
 }

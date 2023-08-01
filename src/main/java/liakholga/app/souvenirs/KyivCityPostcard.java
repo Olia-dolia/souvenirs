@@ -14,9 +14,6 @@ public class KyivCityPostcard implements Postcard {
     private Date date;
     private double price;
 
-    public KyivCityPostcard() {
-    }
-
     public KyivCityPostcard(String name, KyivCity producer, Date date, double price) {
         this.name = name;
         this.producer = producer;
@@ -45,11 +42,6 @@ public class KyivCityPostcard implements Postcard {
         return null;
     }
 
-    @Override
-    public boolean findProducerByPrice(double price) {
-        return this.price<price;
-    }
-
     public void setProducer(KyivCity producer) {
         this.producer = producer;
     }
@@ -73,6 +65,16 @@ public class KyivCityPostcard implements Postcard {
     @Override
     public Souvenir setSouvenir(String name, Producer producer, Date date, double price) {
         return new KyivCityPostcard(name, (KyivCity) producer, date, price);
+    }
+
+    @Override
+    public String getSouvenir() {
+        return "KyivCityPostcard{" +
+                "name='" + name + '\'' +
+                ", country= " + producer.getCountry() +
+                ", date=" + date +
+                ", price=" + price +
+                '}';
     }
 
     @Override

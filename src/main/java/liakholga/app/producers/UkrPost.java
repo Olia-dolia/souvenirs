@@ -6,7 +6,6 @@ import liakholga.app.souvenirInterface.Keychain;
 import liakholga.app.souvenirInterface.Pen;
 import liakholga.app.souvenirInterface.Postcard;
 import liakholga.app.souvenirs.UkrPostCup;
-import liakholga.app.souvenirs.UkrPostPen;
 
 import java.util.Date;
 

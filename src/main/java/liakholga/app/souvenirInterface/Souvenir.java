@@ -7,9 +7,15 @@ import java.util.Date;
 public interface Souvenir {
     Souvenir setSouvenir(String name, Producer producer, Date date, double price);
 
+    String getSouvenir();
+
+    String getName();
+
     Producer getProducer();
 
-    Souvenir findByNameAndProducer(String name, Producer producer);
+    Date getDate();
 
-    boolean findProducerByPrice(double price);
+    double getPrice();
+
+    Souvenir findByNameAndProducer(String name, Producer producer);
 }

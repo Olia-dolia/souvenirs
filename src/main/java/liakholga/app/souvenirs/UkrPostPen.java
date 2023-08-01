@@ -42,11 +42,6 @@ public class UkrPostPen implements Pen {
         return null;
     }
 
-    @Override
-    public boolean findProducerByPrice(double price) {
-        return this.price<price;
-    }
-
     public void setProducer(UkrPost producer) {
         this.producer = producer;
     }
@@ -70,6 +65,16 @@ public class UkrPostPen implements Pen {
     @Override
     public Souvenir setSouvenir(String name, Producer producer, Date date, double price) {
         return new UkrPostPen(name, (UkrPost) producer, date, price);
+    }
+
+    @Override
+    public String getSouvenir() {
+        return "UkrPostPen{" +
+                "name='" + name + '\'' +
+                ", country= " + producer.getCountry() +
+                ", date=" + date +
+                ", price=" + price +
+                '}';
     }
 
     @Override

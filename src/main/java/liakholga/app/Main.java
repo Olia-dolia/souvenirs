@@ -17,10 +17,10 @@ public class Main {
         Service service = new Service();
         List<Souvenir> souvenirs = new ArrayList<>();
         souvenirs.add(new NovaPostCup("NPCup1", new NovaPost("UK"), new Date("02/11/2022"), 200.0));
-        souvenirs.add(new NovaPostCup("NPCup2", new NovaPost("USA"), new Date("25/09/2021"), 150.0));
-        souvenirs.add(new UkrPostCup("UPCup1", new UkrPost("USA"), new Date("16/10/2022"), 150.0));
-        souvenirs.add(new PrivatBankKeychain("PBKeychain1", new PrivatBank("UA"), new Date("22/05/2020"), 50.0));
-        souvenirs.add(new KyivCityPostcard("KCPostCard1", new KyivCity("UA"), new Date("07/02/2019"), 25.0));
+        souvenirs.add(new NovaPostCup("NPCup2", new NovaPost("USA"), new Date("09/09/2021"), 150.0));
+        souvenirs.add(new UkrPostCup("UPCup1", new UkrPost("USA"), new Date("11/10/2022"), 150.0));
+        souvenirs.add(new PrivatBankKeychain("PBKeychain1", new PrivatBank("UA"), new Date("05/22/2020"), 50.0));
+        souvenirs.add(new KyivCityPostcard("KCPostCard1", new KyivCity("UA"), new Date("07/26/2019"), 25.0));
 
         /*Souvenir s = (name, producer, date, price) -> new NovaPostCup("j", new NovaPost("CH"), new Date("09/10/2020"), 90.0);
         souvenirs.add(s);// add
@@ -32,6 +32,9 @@ public class Main {
         souvenirs.subList(0, service.removeSouvenirByProducer(souvenirs, "Nova Post").size());
         service.getAllSouvenirs(souvenirs);
         service.getSouvenirsByCountry(souvenirs, "USA");
-        service.getProducerByPrice(souvenirs,200.0);*/
+        service.getProducerByPrice(souvenirs,200.0);
+        service.printMap(service.getProducerAndItsSouvenirs(souvenirs),1);
+        service.getProducerByYear(souvenirs, 2022);
+        service.printMap(service.getSouvenirsByYear(souvenirs), 2);*/
     }
 }

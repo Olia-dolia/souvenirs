@@ -5,7 +5,9 @@ import liakholga.app.souvenirInterface.Souvenir;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Service {
 
@@ -26,17 +28,15 @@ public class Service {
         list.forEach(System.out::println);
     }
 
-    public void getSouvenirsByCountry(List<Souvenir> souvenirs, String country){
+    public void getSouvenirsByCountry(List<Souvenir> souvenirs, String country) {
         souvenirs.stream().filter(souvenir -> souvenir.getProducer().getCountry().equals(country))
                 .forEach(System.out::println);
     }
 
-    public void getProducerByPrice(List<Souvenir> souvenirs, double price){
-        souvenirs.stream().filter(x->x.findProducerByPrice(price))
-                .forEach(producer -> {
-                    System.out.printf("Producer - %s, country - %s \n",
-                            producer.getProducer().getName(), producer.getProducer().getCountry());
-                });
+    public void getProducerByPrice(List<Souvenir> souvenirs, double price) {
+        souvenirs.stream().filter(x -> x.getPrice() < price)
+                .forEach(producer -> System.out.printf("Producer - %s, country - \"%s\" \n",
+                        producer.getProducer().getName(), producer.getProducer().getCountry()));
     }
 
     public Souvenir updateSouvenir(List<Souvenir> souvenirs, String name, Producer producer) {
@@ -46,6 +46,7 @@ public class Service {
         String newName, newCountry, newDate;
         double newPrice;
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Enter new name: ");
         newName = scanner.nextLine();
         System.out.println("Enter new Producer Country: ");
@@ -55,6 +56,7 @@ public class Service {
         newDate = scanner.nextLine();
         System.out.println("Enter new price: ");
         newPrice = scanner.nextDouble();
+
         return souvenir.setSouvenir(newName, producer, new Date(newDate), newPrice);
     }
 
@@ -68,6 +70,41 @@ public class Service {
             }
         }
         return index;
+    }
+
+    public Map<String, List<Souvenir>> getProducerAndItsSouvenirs(List<Souvenir> souvenirs) {
+        return souvenirs.stream()
+                .collect(Collectors.groupingBy(souvenir -> souvenir.getProducer().getName()));
+    }
+
+    public <T> void printMap(Map<T, List<Souvenir>> map, int choice) {
+        for (Map.Entry<T, List<Souvenir>> entry : map.entrySet()) {
+            System.out.println(entry.getKey());
+            switch (choice) {
+                case 1 -> {
+                    for (Souvenir s : entry.getValue()) {
+                        System.out.print(s.getSouvenir() + "\n");
+                    }
+                }
+                case 2 -> {
+                    for (Souvenir s : entry.getValue()) {
+                        System.out.print(s.toString() + "\n");
+                    }
+                }
+            }
+        }
+    }
+
+    public void getProducerByYear(List<Souvenir> souvenirs, int year) {
+        System.out.println("For product in " + year + " year");
+        souvenirs.stream().filter(x -> (x.getDate().getYear() + 1900) == year)
+                .forEach(x -> System.out.printf("Producer - %s, country - \"%s\" \n",
+                        x.getProducer().getName(), x.getProducer().getCountry()));
+    }
+
+    public Map<Integer, List<Souvenir>> getSouvenirsByYear(List<Souvenir> souvenirs) {
+        return souvenirs.stream()
+                .collect(Collectors.groupingBy(souvenir -> souvenir.getDate().getYear()+1900));
     }
 
     public List<Souvenir> removeSouvenirByProducer(List<Souvenir> souvenirs, String producer) {

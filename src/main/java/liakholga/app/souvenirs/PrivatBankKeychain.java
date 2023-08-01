@@ -4,9 +4,7 @@ import liakholga.app.producers.PrivatBank;
 import liakholga.app.producers.Producer;
 import liakholga.app.souvenirInterface.Keychain;
 import liakholga.app.souvenirInterface.Souvenir;
-
 import java.util.Date;
-import java.util.List;
 
 public class PrivatBankKeychain implements Keychain {
 
@@ -14,9 +12,6 @@ public class PrivatBankKeychain implements Keychain {
     private PrivatBank producer;
     private Date date;
     private double price;
-
-    public PrivatBankKeychain() {
-    }
 
     public PrivatBankKeychain(String name, PrivatBank producer, Date date, double price) {
         this.name = name;
@@ -39,11 +34,6 @@ public class PrivatBankKeychain implements Keychain {
             return this;
         }
         return null;
-    }
-
-    @Override
-    public boolean findProducerByPrice(double price) {
-        return this.price < price;
     }
 
     @Override
@@ -74,6 +64,16 @@ public class PrivatBankKeychain implements Keychain {
     @Override
     public Souvenir setSouvenir(String name, Producer producer, Date date, double price) {
         return new PrivatBankKeychain(name, (PrivatBank) producer, date, price);
+    }
+
+    @Override
+    public String getSouvenir() {
+        return "PrivatBankKeychain{" +
+                "name='" + name + '\'' +
+                ", country= " + producer.getCountry() +
+                ", date=" + date +
+                ", price=" + price +
+                '}';
     }
 
     @Override
