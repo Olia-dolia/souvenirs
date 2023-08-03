@@ -14,10 +14,14 @@ public class KyivCity implements SouvenirsFactory, Producer {
     private String name;
     private String country;
 
+
+
     public KyivCity(String country) {
         this.name = "Kyiv City";
         this.country = country;
     }
+
+    public KyivCity() {}
 
     @Override
     public Cup createCup(String name, Producer producer, Date date, double price) {
@@ -36,7 +40,7 @@ public class KyivCity implements SouvenirsFactory, Producer {
 
     @Override
     public Postcard createPostCard(String name, Producer producer, Date date, double price) {
-        return null;
+        return new KyivCityPostcard(name, new KyivCity(producer.getCountry()), date, price);
     }
 
 

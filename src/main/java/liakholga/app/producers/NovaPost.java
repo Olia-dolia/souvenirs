@@ -15,10 +15,14 @@ public class NovaPost implements SouvenirsFactory, Producer {
     private String name;
     private String country;
 
+
+
     public NovaPost(String country) {
         this.name = "Nova Post";
         this.country = country;
     }
+
+    public NovaPost() {}
 
     @Override
     public Cup createCup(String name, Producer producer, Date date, double price) {

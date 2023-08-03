@@ -6,6 +6,7 @@ import liakholga.app.souvenirInterface.Keychain;
 import liakholga.app.souvenirInterface.Pen;
 import liakholga.app.souvenirInterface.Postcard;
 import liakholga.app.souvenirs.UkrPostCup;
+import liakholga.app.souvenirs.UkrPostPen;
 
 import java.util.Date;
 
@@ -19,9 +20,11 @@ public class UkrPost implements SouvenirsFactory, Producer {
         this.country = country;
     }
 
+    public UkrPost() {}
+
     @Override
-    public Cup createCup(String nameCup, Producer producer, Date date, double price) {
-        return new UkrPostCup(nameCup, (UkrPost) producer, date, price);
+    public Cup createCup(String name, Producer producer, Date date, double price) {
+        return new UkrPostCup(name, (UkrPost) producer, date, price);
     }
 
     @Override
@@ -31,7 +34,7 @@ public class UkrPost implements SouvenirsFactory, Producer {
 
     @Override
     public Pen createPen(String name, Producer producer, Date date, double price) {
-        return null;
+        return new UkrPostPen(name, (UkrPost) producer, date, price);
     }
 
     @Override

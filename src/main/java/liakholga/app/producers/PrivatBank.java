@@ -1,10 +1,7 @@
 package liakholga.app.producers;
 
 import liakholga.app.Factory.SouvenirsFactory;
-import liakholga.app.souvenirInterface.Cup;
-import liakholga.app.souvenirInterface.Keychain;
-import liakholga.app.souvenirInterface.Pen;
-import liakholga.app.souvenirInterface.Postcard;
+import liakholga.app.souvenirInterface.*;
 import liakholga.app.souvenirs.PrivatBankKeychain;
 
 import java.util.Date;
@@ -14,10 +11,14 @@ public class PrivatBank implements SouvenirsFactory, Producer {
     private String name;
     private String country;
 
+
+
     public PrivatBank(String country) {
         this.name = "Privat Bank";
         this.country = country;
     }
+
+    public PrivatBank() {}
 
     @Override
     public Cup createCup(String nameCup, Producer producer, Date date, double price) {
@@ -26,7 +27,7 @@ public class PrivatBank implements SouvenirsFactory, Producer {
 
     @Override
     public Keychain createKeychain(String name, Producer producer, Date date, double price) {
-        return null;
+        return new PrivatBankKeychain(name, (PrivatBank) producer, date, price);
     }
 
     @Override

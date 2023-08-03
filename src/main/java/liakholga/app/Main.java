@@ -1,33 +1,21 @@
 package liakholga.app;
 
-import liakholga.app.producers.KyivCity;
-import liakholga.app.producers.NovaPost;
-import liakholga.app.producers.PrivatBank;
-import liakholga.app.producers.UkrPost;
-import liakholga.app.servise.Service;
+import liakholga.app.service.Service;
 import liakholga.app.souvenirInterface.Souvenir;
-import liakholga.app.souvenirs.*;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Service service = new Service();
-        List<Souvenir> souvenirs = new ArrayList<>();
-        souvenirs.add(new NovaPostCup("NPCup1", new NovaPost("UK"), new Date("02/11/2022"), 200.0));
-        souvenirs.add(new NovaPostCup("NPCup2", new NovaPost("USA"), new Date("09/09/2021"), 150.0));
-        souvenirs.add(new UkrPostCup("UPCup1", new UkrPost("USA"), new Date("11/10/2022"), 150.0));
-        souvenirs.add(new PrivatBankKeychain("PBKeychain1", new PrivatBank("UA"), new Date("05/22/2020"), 50.0));
-        souvenirs.add(new KyivCityPostcard("KCPostCard1", new KyivCity("UA"), new Date("07/26/2019"), 25.0));
+        List<Souvenir> souvenirs = service.parseSouvenirInputList(service.readFromFiles());
+        //List<Souvenir> s = new ArrayList<>();
+        // add
 
-        /*Souvenir s = (name, producer, date, price) -> new NovaPostCup("j", new NovaPost("CH"), new Date("09/10/2020"), 90.0);
-        souvenirs.add(s);// add
         service.getAllSouvenirs(souvenirs);
         service.terminalOutput(service.getAllProducers(souvenirs));
-        souvenirs.set(service.getIndex(souvenirs, "NPCup1", new NovaPost("UK")),
-                service.updateSouvenir(souvenirs,"NPCup1", new NovaPost("UK")));
+        /*souvenirs.set(service.getIndex(souvenirs, "NPCup1", new NovaPost("UK")),
+                service.updateSouvenir(souvenirs,"NPCup1", new NovaPost("UK")));*/
         service.getAllSouvenirs(souvenirs);
         souvenirs.subList(0, service.removeSouvenirByProducer(souvenirs, "Nova Post").size());
         service.getAllSouvenirs(souvenirs);
@@ -35,6 +23,24 @@ public class Main {
         service.getProducerByPrice(souvenirs,200.0);
         service.printMap(service.getProducerAndItsSouvenirs(souvenirs),1);
         service.getProducerByYear(souvenirs, 2022);
-        service.printMap(service.getSouvenirsByYear(souvenirs), 2);*/
+        service.printMap(service.getSouvenirsByYear(souvenirs), 2);
+
+       /* Main main = new Main();
+        main.run();*/
     }
+
+    /*private void run() throws Exception {
+        //Service service = Service.getInstance();
+        Service service = new Service();
+
+        List<String[]> str = service.readFromFiles();
+        List<Souvenir> souvenirs = service.parseSouvenirInputList(str);
+
+        //Get Input Data
+        ;
+        service.printMap(service.getProducerAndItsSouvenirs(souvenirs), 2);
+        *//*   souvenirs.forEach(System.out::println);*//*
+
+
+    }*/
 }
