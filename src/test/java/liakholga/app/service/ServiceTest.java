@@ -1,6 +1,5 @@
 package liakholga.app.service;
 
-import liakholga.app.Factory.SouvenirsFactory;
 import liakholga.app.producers.KyivCity;
 import liakholga.app.producers.NovaPost;
 import liakholga.app.producers.PrivatBank;
@@ -10,7 +9,6 @@ import liakholga.app.souvenirs.KyivCityPostcard;
 import liakholga.app.souvenirs.NovaPostCup;
 import liakholga.app.souvenirs.PrivatBankKeychain;
 import liakholga.app.souvenirs.UkrPostCup;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import static org.assertj.core.api.Assertions.assertThat;
