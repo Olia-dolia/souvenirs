@@ -146,9 +146,7 @@ public class Service {
      * a list of strings array with each element as a separate entry.
      */
     public Souvenir parseKyivCity(String[] s) {
-        //String souvenirType = s[1].toLowerCase();
         return new KyivCityPostcard(s[1], new KyivCity(s[2]), new Date(s[3]), Double.parseDouble(s[4]));
-
     }
 
     /**

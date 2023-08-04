@@ -41,7 +41,7 @@ public class Main {
         //Print all producers info where price on souvenirs < certain_price
         service.getProducerByPrice(souvenirs,170.0);
 
-        //Print all roducers info and their souvenirs
+        //Print all producers info and their souvenirs
         service.printMap(service.getProducerAndItsSouvenirs(souvenirs),1);
 
         //Print producers by certain product and year
