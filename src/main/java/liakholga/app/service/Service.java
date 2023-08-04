@@ -1,25 +1,26 @@
 package liakholga.app.service;
 
-import com.opencsv.CSVParser;
-import com.opencsv.CSVParserBuilder;
-import com.opencsv.CSVReader;
-import com.opencsv.CSVReaderBuilder;
+import com.opencsv.*;
 
 import liakholga.app.producers.*;
 import liakholga.app.souvenirInterface.Souvenir;
 import liakholga.app.souvenirs.KyivCityPostcard;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class Service {
 
     private List<Path> getFilesName() throws IOException {
-        return Files.list(Path.of("src/main/resources/")).toList();
+        return Files.list(Path.of("src/main/resources/inputData")).toList();
     }
 
     public List<String[]> readFromFiles() throws Exception { //Path filePath
@@ -211,4 +212,68 @@ public class Service {
     }
 
     //method to write in file
+    private boolean createFolder() {
+        String path = "src/main/resources/outputData";
+        File file = new File(path);
+        try {
+            if (!file.exists()) {
+                return file.mkdir();
+            } else {
+                return file.mkdir();
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return false;
+    }
+
+    private File createFile() {
+        String path = "src/main/resources/outputData";
+        String fileName = LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")).concat("-Output.csv");
+        File file = new File(path.concat("/" + fileName));
+
+        try {
+            boolean create = file.createNewFile();
+            if (create) {
+                return file;
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    private boolean writeInCsvFile(File file, List<String[]> souvenirs) {
+        String[] header = new String[]{"producer", "souvenir_name", "country", "date", "price"};
+        try (CSVWriter writer = new CSVWriter(new FileWriter(file))) {
+            writer.writeNext(header, false);
+            writer.writeAll(souvenirs, false);
+            return true;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return false;
+    }
+
+    public boolean writeInFile(List<Souvenir> souvenirs) {
+        List<String[]> list = new ArrayList<>();
+
+        for (Souvenir souvenir : souvenirs) {
+            String[] s = new String[]{souvenir.getProducer().getName(),
+                    souvenir.getName(), souvenir.getProducer().getCountry(), souvenir.getDate().toString(),
+                    String.valueOf(souvenir.getPrice())};
+            list.add(s);
+        }
+
+        list.forEach(souvenir -> {
+            System.out.println(Arrays.toString(souvenir));
+        });
+
+        if (createFolder()){
+            return writeInCsvFile(createFile(), list);
+        }
+
+        return false;
+    }
 }

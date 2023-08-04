@@ -12,10 +12,10 @@ public class Main {
         //List<Souvenir> s = new ArrayList<>();
         // add
 
-        service.getAllSouvenirs(souvenirs);
+       /* service.getAllSouvenirs(souvenirs);
         service.terminalOutput(service.getAllProducers(souvenirs));
-        /*souvenirs.set(service.getIndex(souvenirs, "NPCup1", new NovaPost("UK")),
-                service.updateSouvenir(souvenirs,"NPCup1", new NovaPost("UK")));*/
+        *//*souvenirs.set(service.getIndex(souvenirs, "NPCup1", new NovaPost("UK")),
+                service.updateSouvenir(souvenirs,"NPCup1", new NovaPost("UK")));*//*
         service.getAllSouvenirs(souvenirs);
         souvenirs.subList(0, service.removeSouvenirByProducer(souvenirs, "Nova Post").size());
         service.getAllSouvenirs(souvenirs);
@@ -23,7 +23,9 @@ public class Main {
         service.getProducerByPrice(souvenirs,200.0);
         service.printMap(service.getProducerAndItsSouvenirs(souvenirs),1);
         service.getProducerByYear(souvenirs, 2022);
-        service.printMap(service.getSouvenirsByYear(souvenirs), 2);
+        service.printMap(service.getSouvenirsByYear(souvenirs), 2);*/
+        boolean write = service.writeInFile(souvenirs);
+        System.out.println(write);
 
        /* Main main = new Main();
         main.run();*/
