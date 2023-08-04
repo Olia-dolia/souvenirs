@@ -29,14 +29,6 @@ public class PrivatBankKeychain implements Keychain {
     }
 
     @Override
-    public Souvenir findByNameAndProducer(String name, Producer producer) {
-        if(this.name.equals(name) && this.producer.equals(producer)){
-            return this;
-        }
-        return null;
-    }
-
-    @Override
     public PrivatBank getProducer() {
         return producer;
     }

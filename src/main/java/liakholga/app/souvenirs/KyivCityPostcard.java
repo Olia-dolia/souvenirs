@@ -34,14 +34,6 @@ public class KyivCityPostcard implements Postcard {
         return producer;
     }
 
-    @Override
-    public Souvenir findByNameAndProducer(String name, Producer producer) {
-        if(this.name.equals(name) && this.producer.equals(producer)){
-            return this;
-        }
-        return null;
-    }
-
     public void setProducer(KyivCity producer) {
         this.producer = producer;
     }

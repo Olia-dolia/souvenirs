@@ -35,14 +35,6 @@ public class NovaPostCup implements Cup {
         return producer;
     }
 
-    @Override
-    public Souvenir findByNameAndProducer(String name, Producer producer) {
-        if(this.name.equals(name) && this.producer.equals(producer)){
-            return this;
-        }
-        return null;
-    }
-
     public void setProducer(NovaPost producer) {
         this.producer = producer;
     }

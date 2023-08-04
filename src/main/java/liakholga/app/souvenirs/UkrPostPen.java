@@ -34,14 +34,6 @@ public class UkrPostPen implements Pen {
         return producer;
     }
 
-    @Override
-    public Souvenir findByNameAndProducer(String name, Producer producer) {
-        if(this.name.equals(name) && this.producer.equals(producer)){
-            return this;
-        }
-        return null;
-    }
-
     public void setProducer(UkrPost producer) {
         this.producer = producer;
     }

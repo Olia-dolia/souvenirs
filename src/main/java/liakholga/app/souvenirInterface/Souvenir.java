@@ -16,6 +16,4 @@ public interface Souvenir {
     Date getDate();
 
     double getPrice();
-
-    Souvenir findByNameAndProducer(String name, Producer producer);
 }
