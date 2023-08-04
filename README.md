@@ -16,5 +16,5 @@ Describes certain Producer
 Describes certain type of souvenirs
 - Souvenirs:   
 Describes certain product with certain producer
-- recources/IputData:
+- recources/IputData:   
 Store files with input data
